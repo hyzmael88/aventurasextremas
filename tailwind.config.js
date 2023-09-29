@@ -11,7 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        American: ["American"]
+        American: ["American"],
+        MelbergRegular: ["MelbergRegular"],
+        MelbergHeavy: ["MelbergHeavy"]
       }
     },
   },

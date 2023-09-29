@@ -6,3 +6,11 @@
   font-family: "American";
   src: url("../components/assets/Typos/American.ttf");
 }
+@font-face{
+  font-family: "MelbergRegular";
+  src: url("../components/assets/Typos/MalbergRegular.ttf");
+}
+@font-face{
+  font-family: "MelbergHeavy";
+  src: url("../components/assets/Typos/MalbergHeavy.ttf");
+}

@@ -8,10 +8,17 @@ import Layer5 from '../../components/assets/Parallax/logonegro.png';  // Importa
 import Image from 'next/image';
 import {fadeIn} from '../../../variants'
 import SnowFlake from './SnowFlake';
+import { AppContext } from '@/context/StateContext';
 
 const Parallax = () => {
       const { scrollYProgress } = useViewportScroll();
       const numberOfSnowflakes = 200;  // Puedes ajustar este número según tu preferencia
+
+      const {homeButton} = AppContext()
+      
+      const translateYLayer3 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+      const translateYLayer4 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+    
 
 
   return (
@@ -43,7 +50,9 @@ const Parallax = () => {
      
       <motion.div
         initial={{ translateY: 1200 }}
-        animate={{ translateY: 0 }}
+        animate={{  translateY: homeButton ? 100 : 0,
+          opacity:homeButton ? 0 : 100
+         }}
         transition={{duration:3}}
         className='w-full h-full absolute z-10'
       >
@@ -58,20 +67,21 @@ const Parallax = () => {
         <Image src={Layer5} className='flex xl:hidden w-full h-full object-cover ' />
       </motion.div>
       <motion.div
-         initial={{ translateY: 300 }}
-         animate={{ translateY: 0 }}
-         transition={{duration:2}}
+        initial={{ translateY: 300 }}
+        animate={{ translateY: homeButton ? 100 : 0 }}  // Cambiamos la animación en base a homeButton
+        transition={{ duration: 2 }}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer3} className='w-full h-full object-cover ' />
+        <Image src={Layer3} className='w-full h-full object-cover' />
       </motion.div>
+
       <motion.div
         initial={{ translateY: 300 }}
-        animate={{ translateY: 0 }}
-        transition={{duration:2}}
+        animate={{ translateY: homeButton ? 100 : 0 }}  // Cambiamos la animación en base a homeButton
+        transition={{ duration: 2 }}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer4} className='w-full h-full object-cover ' />
+        <Image src={Layer4} className='w-full h-full object-cover' />
       </motion.div>
     
      
