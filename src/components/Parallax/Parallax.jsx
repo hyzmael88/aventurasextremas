@@ -72,8 +72,10 @@ const Parallax = () => {
       </motion.div>
       <motion.div
         initial={{ translateY: 300 }}
-        animate={{ translateY: homeButton ? 100 : 0 }}  // Cambiamos la animación en base a homeButton
-        transition={{ duration: 2 }}
+        animate={{ translateY: homeButton ? 400 : 0 ,
+          opacity:homeButton ? 0 : 100
+        }}  // Cambiamos la animación en base a homeButton
+        transition={{ duration: homeButton ? 2 : 5}}
         className='w-full h-full absolute z-10'
       >
         <Image src={Layer3} className='w-full h-full object-cover' />
@@ -81,8 +83,10 @@ const Parallax = () => {
 
       <motion.div
         initial={{ translateY: 300 }}
-        animate={{ translateY: homeButton ? 100 : 0 }}  // Cambiamos la animación en base a homeButton
-        transition={{ duration: 2 }}
+        animate={{ translateY: homeButton ? 400 : 0,
+          opacity:homeButton ? 0 : 100
+         }}  // Cambiamos la animación en base a homeButton
+        transition={{duration: homeButton ? 2 : 5}}
         className='w-full h-full absolute z-10'
       >
         <Image src={Layer4} className='w-full h-full object-cover' />

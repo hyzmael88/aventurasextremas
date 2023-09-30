@@ -14,3 +14,13 @@
   font-family: "MelbergHeavy";
   src: url("../components/assets/Typos/MalbergHeavy.ttf");
 }
+
+/* Estilo para la diapositiva activa */
+.active-slide {
+  filter: none; /* Puedes aplicar aquí cualquier estilo que quieras para la diapositiva activa */
+}
+
+/* Estilo para las diapositivas no activas */
+.non-active-slide {
+  filter: blur(3px); /* Puedes cambiar el valor de blur según tu preferencia */
+}
