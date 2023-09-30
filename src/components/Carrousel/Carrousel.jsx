@@ -71,12 +71,11 @@ function Carrousel() {
         >
           {[Foto1, Foto2, Foto3, Foto4, Foto5, Foto6, Foto7, Foto8].map((foto, index) => (
             <SwiperSlide key={index} className={index === activeIndex ? 'active-slide' : 'non-active-slide'}>
-              <ResponsiveImage
+              <Image
                 src={foto}
-                className='h-full w-[900px] rounded-[25px] object-cover transition-all duration-300'
+                className='h-[450px] md:w-full w-[900px] rounded-[25px] object-cover transition-all duration-300'
                 alt={`Foto ${index + 1}`}
-                width={900}
-                height={750}
+                
               />
             </SwiperSlide>
           ))}
