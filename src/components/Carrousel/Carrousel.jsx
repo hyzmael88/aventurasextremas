@@ -48,7 +48,10 @@ function Carrousel() {
         opacity: homeButton ? 100 : 0,
       }}
       transition={{ duration: 4 }}
-      className='w-full h-screen  absolute z-40 top-0  text-white flex flex-row justify-center items-center'
+      className='w-full h-screen 
+      bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 
+
+      absolute z-40 top-0  text-white flex flex-row justify-center items-center'
     >
       <div className='h-[70vh] w-full  flex flex-col justify-center items-center'>
         <Swiper
@@ -73,7 +76,7 @@ function Carrousel() {
             <SwiperSlide key={index} className={index === activeIndex ? 'active-slide' : 'non-active-slide'}>
               <Image
                 src={foto}
-                className='h-[450px] md:w-full w-[900px] rounded-[25px] object-cover transition-all duration-300'
+                className='h-[450px] 2xl:h-[600px] md:w-full  w-[900px] rounded-[25px] object-cover transition-all duration-300'
                 alt={`Foto ${index + 1}`}
                 
               />

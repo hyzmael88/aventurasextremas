@@ -65,13 +65,18 @@ function Navbar() {
         </div>
     </motion.div>
     {/* Movil */}
-    <motion.div className='w-full h-[100px] absolute top-0 z-50 flex flex-row justify-between items-center xl:hidden'>
-   
+    <motion.div 
+    initial={{ translateY: -100 }}
+    animate={{ translateY: 0 }}
+    transition={{duration:4}}
+    className='w-full h-[100px] absolute top-0 z-50 flex flex-row justify-between items-center xl:hidden'>
             {/* Logo */}
             <Image src={Logotrans} alt='logo' className='w-[100px] h-[100px] animate-pulse ' />
             {/* Hamburguer */}
             <div> 
-                <BiMenuAltRight className='mr-4 text-[60px] text-[#fed0b1] animate-pulse'/>
+                <BiMenuAltRight className='mr-4 text-[60px] text-[#fed0b1] animate-pulse
+                
+                cursor-pointer'/>
             </div>
         
     </motion.div>
