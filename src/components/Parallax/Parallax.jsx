@@ -9,6 +9,7 @@ import Image from 'next/image';
 import {fadeIn} from '../../../variants'
 import SnowFlake from './SnowFlake';
 import { AppContext } from '@/context/StateContext';
+import SocialMedia from '../SocialMedia';
 
 const Parallax = () => {
       const { scrollYProgress } = useViewportScroll();
@@ -23,10 +24,11 @@ const Parallax = () => {
 
   return (
     <div className='h-screen w-full relative overflow-hidden' >
+      <SocialMedia/>
       <div
         className='absolute w-full h-full'
       >
-        <Image src={Layer1} className='w-full h-full object-cover' />
+        <Image src={Layer1} alt='image' className='w-full h-full object-cover' />
       </div>
       <div className='opacity-100 xl:hidden'>
       {[...Array(numberOfSnowflakes/10)].map((_, index) => (
@@ -60,7 +62,9 @@ const Parallax = () => {
       </motion.div>
       <motion.div
         initial={{ translateY: 600 }}
-        animate={{ translateY: 0 }}
+        animate={{  translateY: homeButton ? 100 : 0,
+          opacity:homeButton ? 0 : 100
+         }}
         transition={{duration:3}}
         className='w-full h-full absolute z-10'
       >

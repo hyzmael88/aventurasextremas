@@ -1,5 +1,5 @@
 import React from 'react'
-import {BsChevronDoubleDown} from 'react-icons/bs'
+import {BsChevronDoubleDown, BsChevronDoubleUp} from 'react-icons/bs'
 import {motion} from 'framer-motion'
 import { AppContext } from "../context/StateContext"
 
@@ -15,9 +15,14 @@ function BotonAbajo() {
     transition={{duration:4}}
     className='w-full absolute bottom-10 flex flex-row justify-center items-center text-black hover:text-white z-50 cursor-pointer hover:bottom-12 transition-all duration-300
     '
-    onClick={()=>setHomeButton(true)}
+    onClick={()=>setHomeButton(!homeButton)}
     >
-        <BsChevronDoubleDown className='text-[60px] '/>
+      {
+        homeButton==true?
+        <BsChevronDoubleUp className='text-[40px] xl:text-[60px] transition-all duration-300 '/>
+        :
+        <BsChevronDoubleDown className='text-[40px] xl:text-[60px] transition-all duration-300 '/>
+      }
     </motion.div>
   )
 }

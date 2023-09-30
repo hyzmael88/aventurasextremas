@@ -5,13 +5,15 @@ const StateContext = createContext();
 
 export function StateContextProvider({ children }) {
   const [homeButton, setHomeButton] = useState(false)
+  const [isMenuActive, setIsMenuActive] = useState(false)
 
-  console.log(homeButton)
   return (
     <StateContext.Provider
       value={{
         homeButton,
-        setHomeButton
+        setHomeButton,
+        isMenuActive,
+        setIsMenuActive
       }}
       >
         {children}

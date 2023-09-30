@@ -5,6 +5,8 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 import { FaShoppingCart } from 'react-icons/fa' 
 import { FaUserLarge } from 'react-icons/fa6' 
+import {BiMenuAltRight} from 'react-icons/bi'
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
 export const navData = [
     { name: 'home', path: '/', },
@@ -22,7 +24,14 @@ function Navbar() {
 
 
   return (
-    <div className='absolute z-50 w-full h-[170px] flex flex-row justify-between px-10'>
+    <div
+   
+    >
+    <motion.div 
+     initial={{ opacity: 0 }}
+     animate={{ opacity: 100 }}
+     transition={{duration:4}}
+    className='hidden absolute z-50 w-full h-[170px] xl:flex flex-row justify-between px-10'>
         <div className='flex flex-row items-center'>
             {/* Logo */}
             <Image src={Logotrans} alt='logo' className='w-[150px] h-[150px] animate-pulse ' />
@@ -54,6 +63,22 @@ function Navbar() {
                 <FaUserLarge className='text-3xl hover:text-white transition-all duration-300 cursor-pointer'/>
             </div>
         </div>
+    </motion.div>
+    {/* Movil */}
+    <motion.div className='w-full h-[100px] absolute top-0 z-50 flex flex-row justify-between items-center xl:hidden'>
+   
+            {/* Logo */}
+            <Image src={Logotrans} alt='logo' className='w-[100px] h-[100px] animate-pulse ' />
+            {/* Hamburguer */}
+            <div> 
+                <BiMenuAltRight className='mr-4 text-[60px] text-[#fed0b1] animate-pulse'/>
+            </div>
+        
+    </motion.div>
+    {/* Menu */}
+    <div className='w-full h'>
+
+    </div>
     </div>
   )
 }
