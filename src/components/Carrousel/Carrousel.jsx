@@ -128,10 +128,10 @@ function Carrousel() {
                 alt={`Foto ${index + 1}`}
               />
               <div
-                className="w-full h-full absolute top-0 rounded-[25px]
-              bg-gradient-to-t from-black via-black/80
-              opacity-0 hover:opacity-100
-              "
+                className={`w-full h-full absolute top-0 rounded-[25px]
+                ${activeIndex && "bg-gradient-to-t from-black via-black/80"}
+              
+              `}
               >
               <div className="w-full h-full  flex flex-col absolute top-0 justify-end  ">
                 <h3 className="uppercase font-MelbergHeavy text-4xl mx-4">
