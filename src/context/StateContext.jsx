@@ -5,6 +5,7 @@ const StateContext = createContext();
 
 export function StateContextProvider({ children }) {
   const [homeButton, setHomeButton] = useState(false)
+  const [navButton, setNavButton] = useState(null)
   const [isMenuActive, setIsMenuActive] = useState(false)
 
   return (
@@ -13,7 +14,9 @@ export function StateContextProvider({ children }) {
         homeButton,
         setHomeButton,
         isMenuActive,
-        setIsMenuActive
+        setIsMenuActive,
+        navButton,
+        setNavButton
       }}
       >
         {children}

@@ -12,14 +12,10 @@ import { AppContext } from '@/context/StateContext';
 import SocialMedia from '../SocialMedia';
 
 const Parallax = () => {
-      const { scrollYProgress } = useViewportScroll();
       const numberOfSnowflakes = 200;  // Puedes ajustar este número según tu preferencia
 
-      const {homeButton} = AppContext()
+      const {homeButton, navButton} = AppContext()
       
-      const translateYLayer3 = useTransform(scrollYProgress, [0, 1], [0, 100]);
-      const translateYLayer4 = useTransform(scrollYProgress, [0, 1], [0, 100]);
-    
 
 
   return (
@@ -52,8 +48,8 @@ const Parallax = () => {
      
       <motion.div
         initial={{ translateY: 1200 }}
-        animate={{  translateY: homeButton ? 100 : 0,
-          opacity:homeButton ? 0 : 100
+        animate={{  translateY: homeButton || navButton ? 100 : 0,
+          opacity:homeButton || navButton ? 0 : 100
          }}
         transition={{duration:3}}
         className='w-full h-full absolute z-10'
@@ -62,8 +58,8 @@ const Parallax = () => {
       </motion.div>
       <motion.div
         initial={{ translateY: 600 }}
-        animate={{  translateY: homeButton ? 100 : 0,
-          opacity:homeButton ? 0 : 100
+        animate={{  translateY: homeButton || navButton ? 100 : 0,
+          opacity:homeButton || navButton ? 0 : 100
          }}
         transition={{duration:3}}
         className='w-full h-full absolute z-10'
@@ -72,10 +68,10 @@ const Parallax = () => {
       </motion.div>
       <motion.div
         initial={{ translateY: 300 }}
-        animate={{ translateY: homeButton ? 400 : 0 ,
-          opacity:homeButton ? 0 : 100
+        animate={{ translateY: homeButton || navButton ? 400 : 0 ,
+          opacity:homeButton || navButton ? 0 : 100
         }}  // Cambiamos la animación en base a homeButton
-        transition={{ duration: homeButton ? 2 : 5}}
+        transition={{ duration: homeButton  || navButton? 2 : 5}}
         className='w-full h-full absolute z-10'
       >
         <Image src={Layer3} className='w-full h-full object-cover' />
@@ -83,10 +79,10 @@ const Parallax = () => {
 
       <motion.div
         initial={{ translateY: 300 }}
-        animate={{ translateY: homeButton ? 400 : 0,
-          opacity:homeButton ? 0 : 100
-         }}  // Cambiamos la animación en base a homeButton
-        transition={{duration: homeButton ? 2 : 5}}
+        animate={{ translateY: homeButton || navButton ? 400 : 0,
+          opacity:homeButton || navButton ? 0 : 100
+         }}  // Cambiamos la animación en base a homeButton || navButton
+        transition={{duration: homeButton || navButton ? 2 : 5}}
         className='w-full h-full absolute z-10'
       >
         <Image src={Layer4} className='w-full h-full object-cover' />

@@ -7,10 +7,11 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { FaUserLarge } from 'react-icons/fa6' 
 import {BiMenuAltRight} from 'react-icons/bi'
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { AppContext } from '@/context/StateContext'
 
 export const navData = [
     { name: 'home', path: '/', },
-    { name: 'About', path: '/About Us', },
+    { name: 'About', path: '/About', },
     { name: 'Shop', path: '/Shop', },
     { name: 'Guides', path: '/Guides', },
     { name: 'Advices', path: '/Advices', },
@@ -21,6 +22,15 @@ function Navbar() {
     const router = useRouter()
     const pathname = router.pathname
 // nav data
+
+const {navButton, setNavButton} = AppContext()
+
+const cambioPagina = (item) => {
+    setNavButton(item.path)
+    setTimeout(() => {
+        router.push(item.path)
+    }, 4000);
+}
 
 
   return (
@@ -43,12 +53,15 @@ function Navbar() {
             '>
                 {
                     navData.map((item, index) =>(
-                        <Link key={index} href={item.path}>
+                        <div key={index} 
+                        href={item.path}
+                        onClick={(()=>cambioPagina(item))}
+                        >
                             
                         <li className={item.path == pathname?"w-full relative text-white":'w-[50%] text-black h-full flex flex-col relative cursor-pointer hover:text-white transition-all duration-300'}>
                             <span className='text-[35px] font-MelbergRegular tracking-[2px]'>{item.name}</span>
                             </li>
-                        </Link>
+                        </div>
                     ))
                 }
             </ul>
