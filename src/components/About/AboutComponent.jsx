@@ -24,7 +24,7 @@ function AboutComponent() {
 
       absolute z-40 top-0  text-white flex flex-col xl:flex-row justify-center items-center"
     >
-      <div className="w-full h-full grid grid-cols-3 place-items-center bg-red-500/10">
+      <div className="w-full h-full grid grid-cols-3 place-items-center gap-x-4 ">
        <Faqs/>
        <Contact/>
        <Us/>
