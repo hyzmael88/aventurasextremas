@@ -16,6 +16,8 @@ import {
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { AppContext } from "@/context/StateContext";
 
+import {RxCross1} from 'react-icons/rx'
+
 export const navData = [
   { name: "home", path: "/" },
   { name: "About", path: "/About" },
@@ -29,7 +31,7 @@ function Navbar() {
   const pathname = router.pathname;
   // nav data
 
-  const { navButton, setNavButton } = AppContext();
+  const { navButton, setNavButton, isMenuActive, setIsMenuActive } = AppContext();
 
   const cambioPagina = (item) => {
     setNavButton(item.path);
@@ -96,7 +98,7 @@ function Navbar() {
       {/* Movil */}
       <motion.div
         initial={{ translateY: -100 }}
-        animate={{ translateY: 0 }}
+        animate={{ translateY: !isMenuActive? 0 : -100 }}
         transition={{ duration: 4 }}
         className="w-full h-[100px] absolute top-0 z-50 flex flex-row justify-between items-center xl:hidden"
       >
@@ -107,11 +109,19 @@ function Navbar() {
           className="w-[100px] h-[100px] animate-pulse "
         />
         {/* Hamburguer */}
-        <div>
+        <div 
+        onClick={()=>setIsMenuActive(true)}
+        >
           <BiMenuAltRight
-            className="mr-4 text-[60px] text-[#fed0b1] animate-pulse
-                
-                cursor-pointer"
+            className={isMenuActive?"hidden":"mr-4 text-[60px] text-[#fed0b1] animate-pulse cursor-pointer"}
+        
+          />
+          <motion.RxCross1
+           initial={{ translateY: -100 }}
+           animate={{ translateY: isMenuActive? 0 : -100 }}
+           transition={{ duration: 4 }}
+            className={!isMenuActive?"hidden":"mr-4 text-[60px] text-[#fed0b1] animate-pulse cursor-pointer"}
+        
           />
         </div>
       </motion.div>
@@ -127,7 +137,7 @@ function Navbar() {
           className="text-white text-center uppercase
         flex flex-col w-full 
         gap-y-6
-        text-2xl
+        text-2xl font-MelbergRegular
         "
         >
           {navData.map((item, index) => (
@@ -157,14 +167,17 @@ function Navbar() {
             <BiLogoTwitch className="text-4xl " />
           </div>
         </div>
-        <div className="flex flex-col items-center w-full text-white gap-y-4">
+        <div className="flex flex-col items-center w-full uppercase
+         text-white gap-y-4 font-MelbergRegular
+         
+         ">
           <div className="w-full">
-            <button className=" py-4 bg-transparent border-white border w-full rounded-[25px]  ">
+            <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
               Log In
             </button>
           </div>
           <div className="w-full">
-            <button className=" py-4 bg-transparent border-white border w-full rounded-[25px]  ">
+            <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
               Sign In
             </button>
           </div>
