@@ -85,7 +85,9 @@ function Carrousel() {
 
   return (
     <motion.div
-      initial={{ translateY: 1000 }}
+      initial={{ 
+        opacity:0,
+        translateY: 1000 }}
       animate={{
         translateY: homeButton ? 0 : 1000,
         opacity: homeButton ? 100 : 0,

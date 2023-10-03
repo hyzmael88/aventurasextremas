@@ -3,7 +3,7 @@ import CountUp from 'react-countup'
 
 function Us() {
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center'>
+    <div className='w-full  flex flex-col justify-center items-center gap-y-2'>
             <h3 className="font-MelbergHeavy text-xl">ABOUT US</h3>
 
       <div className='w-[90%] 

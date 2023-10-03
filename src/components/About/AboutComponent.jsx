@@ -13,7 +13,9 @@ function AboutComponent() {
 
   return (
     <motion.div
-      initial={{ translateY: 1000 }}
+      initial={{ translateY: 1000, 
+      opacity:100
+      }}
       animate={{
         translateY: navButton ? 0 : 1000,
         opacity: navButton ? 100 : 0,
@@ -22,9 +24,11 @@ function AboutComponent() {
       className="w-full h-screen 
       bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 
 
-      absolute z-40 top-0  text-white flex flex-col xl:flex-row justify-center items-center"
+      absolute z-40 top-0  text-white flex flex-col  justify-center items-center"
     >
-      <div className="w-full h-full grid grid-cols-3 place-items-center gap-x-4 ">
+      <div className="w-full h-full flex flex-col-reverse xl:flex-row justify-center
+      gap-y-6
+      items-center gap-x-4 xl:gap-x-0 ">
        <Faqs/>
        <Contact/>
        <Us/>

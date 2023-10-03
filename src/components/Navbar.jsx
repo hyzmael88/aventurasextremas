@@ -16,7 +16,7 @@ import {
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { AppContext } from "@/context/StateContext";
 
-import {RxCross1} from 'react-icons/rx'
+import { RxCross1 } from "react-icons/rx";
 
 export const navData = [
   { name: "home", path: "/" },
@@ -31,7 +31,8 @@ function Navbar() {
   const pathname = router.pathname;
   // nav data
 
-  const { navButton, setNavButton, isMenuActive, setIsMenuActive } = AppContext();
+  const { navButton, setNavButton, isMenuActive, setIsMenuActive } =
+    AppContext();
 
   const cambioPagina = (item) => {
     setNavButton(item.path);
@@ -96,93 +97,117 @@ function Navbar() {
         </div>
       </motion.div>
       {/* Movil */}
-      <motion.div
-        initial={{ translateY: -100 }}
-        animate={{ translateY: !isMenuActive? 0 : -100 }}
-        transition={{ duration: 4 }}
-        className="w-full h-[100px] absolute top-0 z-50 flex flex-row justify-between items-center xl:hidden"
-      >
-        {/* Logo */}
-        <Image
-          src={Logotrans}
-          alt="logo"
-          className="w-[100px] h-[100px] animate-pulse "
-        />
-        {/* Hamburguer */}
-        <div 
-        onClick={()=>setIsMenuActive(true)}
+      {!isMenuActive ? (
+        <motion.div
+          initial={{ translateY: -100 }}
+          animate={{ translateY: !isMenuActive ? 0 : -100 }}
+          transition={{ duration: 4 }}
+          className="w-full h-[100px] absolute top-0 z-50 flex flex-row justify-between items-center xl:hidden"
         >
-          <BiMenuAltRight
-            className={isMenuActive?"hidden":"mr-4 text-[60px] text-[#fed0b1] animate-pulse cursor-pointer"}
-        
+          {/* Logo */}
+          <Image
+            src={Logotrans}
+            alt="logo"
+            className="w-[100px] h-[100px] animate-pulse "
           />
-          <motion.RxCross1
-           initial={{ translateY: -100 }}
-           animate={{ translateY: isMenuActive? 0 : -100 }}
-           transition={{ duration: 4 }}
-            className={!isMenuActive?"hidden":"mr-4 text-[60px] text-[#fed0b1] animate-pulse cursor-pointer"}
-        
-          />
-        </div>
-      </motion.div>
-      {/* Menu */}
-      <div
-        className="w-full h-screen flex flex-col 
-      items-center bg-red-500 gap-y-4"
-      >
-        <div>
-          <Image src={Logotrans} alt="logo" className="w-[150px]" />
-        </div>
-        <ul
-          className="text-white text-center uppercase
+          {/* Hamburguer */}
+          <div onClick={() => setIsMenuActive(true)}>
+            <BiMenuAltRight
+              className={
+                isMenuActive
+                  ? "hidden"
+                  : "mr-4 text-[60px] text-[#fed0b1] animate-pulse cursor-pointer"
+              }
+            />
+          </div>
+        </motion.div>
+      ) : (
+        <motion.div
+          initial={{ 
+            opacity:0,
+            translateY: -100 }}
+          animate={{ 
+            opacity:100,
+            translateY: isMenuActive ? 0 : -100 }}
+          transition={{ duration: 4 }}
+          className="w-full h-screen flex flex-col 
+      items-center  gap-y-4  absolute top-0 z-50
+      bg-gray-900  bg-clip-padding backdrop-filter
+      backdrop-blur-xl bg-opacity-10 
+      "
+        >
+          <div className="w-full flex flex-row justify-between items-center">
+            {/* Logo */}
+            <Image
+              src={Logotrans}
+              alt="logo"
+              className="w-[100px] h-[100px] animate-pulse "
+            />
+            {/* Cross*/}
+            <div onClick={() => setIsMenuActive(false)}>
+              <RxCross1
+                className={
+                  !isMenuActive
+                    ? "hidden"
+                    : "mr-4 text-[50px] text-[#fed0b1] animate-pulse cursor-pointer"
+                }
+              />
+            </div>
+          </div>
+
+          <ul
+            className="text-white text-center uppercase
         flex flex-col w-full 
         gap-y-6
         text-2xl font-MelbergRegular
         "
-        >
-          {navData.map((item, index) => (
-            <li key={item}>
-              <span>{item.name}</span>
-            </li>
-          ))}
-        </ul>
-        <div
-          className="w-full  flex flex-row justify-around
+          >
+            {navData.map((item, index) => (
+              <li key={item} className="cursor-pointer">
+                <span>{item.name}</span>
+              </li>
+            ))}
+          </ul>
+          <div
+            className="w-full  flex flex-row justify-around
         items-center 
         "
-        >
-          <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px] ">
-            <BiLogoFacebookCircle className="text-4xl " />
+          >
+            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px] ">
+              <BiLogoFacebookCircle className="text-4xl cursor-pointer " />
+            </div>
+            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoInstagram className="text-4xl cursor-pointer " />
+            </div>
+            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoTiktok className="text-4xl cursor-pointer " />
+            </div>
+            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoTwitter className="text-4xl cursor-pointer " />
+            </div>
+            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoTwitch className="text-4xl cursor-pointer " />
+            </div>
           </div>
-          <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-            <BiLogoInstagram className="text-4xl " />
-          </div>
-          <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-            <BiLogoTiktok className="text-4xl " />
-          </div>
-          <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-            <BiLogoTwitter className="text-4xl " />
-          </div>
-          <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-            <BiLogoTwitch className="text-4xl " />
-          </div>
-        </div>
-        <div className="flex flex-col items-center w-full uppercase
+          <div
+            className="flex flex-col items-center w-full uppercase
          text-white gap-y-4 font-MelbergRegular
          
-         ">
-          <div className="w-full">
-            <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
-              Log In
-            </button>
+         "
+          >
+            <div className="w-[90%]">
+              <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
+                Log In
+              </button>
+            </div>
+            <div className="w-[90%]">
+              <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
+                Sign In
+              </button>
+            </div>
           </div>
-          <div className="w-full">
-            <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
-              Sign In
-            </button>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      )}
     </div>
   );
 }
