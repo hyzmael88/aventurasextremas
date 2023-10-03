@@ -58,7 +58,7 @@ const Parallax = () => {
        transition={{duration:1}}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer2} className='w-full h-full object-cover ' />
+        <Image alt="Imagen" src={Layer2} className='w-full h-full object-cover ' />
       </motion.div>
      
       <motion.div
@@ -71,7 +71,7 @@ const Parallax = () => {
         transition={{duration:3}}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer5} className='hidden xl:flex w-full h-full object-cover ' />
+        <Image alt="Imagen" src={Layer5} className='hidden xl:flex w-full h-full object-cover ' />
       </motion.div>
       <motion.div
         initial={{ translateY: 600,
@@ -83,7 +83,7 @@ const Parallax = () => {
         transition={{duration:3}}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer5} className='flex xl:hidden w-full h-full object-cover ' />
+        <Image alt="Imagen" src={Layer5} className='flex xl:hidden w-full h-full object-cover ' />
       </motion.div>
       <motion.div
         initial={{ translateY: 300 }}
@@ -93,7 +93,7 @@ const Parallax = () => {
         transition={{ duration: homeButton  || navButton? 2 : 5}}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer3} className='w-full h-full object-cover' />
+        <Image alt="Imagen" src={Layer3} className='w-full h-full object-cover' />
       </motion.div>
 
       <motion.div
@@ -104,7 +104,7 @@ const Parallax = () => {
         transition={{duration: homeButton || navButton ? 2 : 5}}
         className='w-full h-full absolute z-10'
       >
-        <Image src={Layer4} className='w-full h-full object-cover' />
+        <Image alt="Imagen" src={Layer4} className='w-full h-full object-cover' />
       </motion.div>
     
      
