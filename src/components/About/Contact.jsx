@@ -46,11 +46,11 @@ function Contact() {
       </div>
       <div className="w-[90%] h-[80px] bg-black/20 rounded-[25px]">
         <div className="w-full h-full flex flex-row justify-around items-center group text-[25px]">
-          <BiLogoFacebookCircle />
-          <BiLogoInstagram />
-          <BiLogoTiktok />
-          <BiLogoTwitter />
-          <BiLogoTwitch />
+          <BiLogoFacebookCircle className="cursor-pointer hover:text-[35px] transition-all duration-300"/>
+          <BiLogoInstagram className="cursor-pointer hover:text-[35px] transition-all duration-300"/>
+          <BiLogoTiktok className="cursor-pointer hover:text-[35px] transition-all duration-300"/>
+          <BiLogoTwitter className="cursor-pointer hover:text-[35px] transition-all duration-300"/>
+          <BiLogoTwitch className="cursor-pointer hover:text-[35px] transition-all duration-300"/>
         </div>
       </div>
     </div>

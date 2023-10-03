@@ -24,6 +24,9 @@ const Parallax = () => {
     if (pathname!= "/") {
       setNavButton(pathname);
     }
+    else{
+      setNavButton(null)
+    }
     console.log(pathname)
   }, [pathname, setNavButton]); 
       

@@ -10,7 +10,14 @@ function Us() {
        rounded-[25px] grid grid-cols-2 p-4 gap-2 bg-black/20 '>
         <div className='w-full h-full  '>
           <div className='w-full h-[120px] bg-gray-600 flex flex-col justify-center items-center rounded-[25px]'>
-            <h3 className='font-bold text-4xl'><CountUp start={0} end={75} duration={5} />K</h3>
+            <h3 className='font-bold text-4xl'>
+              
+              
+                <CountUp start={0} end={75} duration={5} />
+              
+              
+              
+              K</h3>
             <span className='font-MelbergRegular uppercase'>Mountains</span>
             </div>
         </div>

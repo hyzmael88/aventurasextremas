@@ -123,12 +123,14 @@ function Navbar() {
         </motion.div>
       ) : (
         <motion.div
-          initial={{ 
-            opacity:0,
-            translateY: -100 }}
-          animate={{ 
-            opacity:100,
-            translateY: isMenuActive ? 0 : -100 }}
+          initial={{
+            opacity: 0,
+            translateY: -100,
+          }}
+          animate={{
+            opacity: 100,
+            translateY: isMenuActive ? 0 : -100,
+          }}
           transition={{ duration: 4 }}
           className="w-full h-screen flex flex-col 
       items-center  gap-y-4  absolute top-0 z-50
@@ -163,9 +165,17 @@ function Navbar() {
         "
           >
             {navData.map((item, index) => (
-              <li key={item} className="cursor-pointer">
+              <Link
+                key={item}
+                href={item.path}
+                onClick={() => setIsMenuActive(false)}
+                className="cursor-pointer
+                hover:text-3xl
+                transition-all duration-300
+                "
+              >
                 <span>{item.name}</span>
-              </li>
+              </Link>
             ))}
           </ul>
           <div
@@ -173,20 +183,25 @@ function Navbar() {
         items-center 
         "
           >
-            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px] ">
-              <BiLogoFacebookCircle className="text-4xl cursor-pointer " />
+            <div className="flex flex-col justify-center items-center  bg-gray-900  bg-clip-padding backdrop-filter
+      backdrop-blur-xl bg-opacity-10  w-[70px] h-[70px] rounded-[25px] ">
+              <BiLogoFacebookCircle className="cursor-pointer text-[35px] hover:text-[45px] text-white transition-all duration-300 " />
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-              <BiLogoInstagram className="text-4xl cursor-pointer " />
+            <div className="flex flex-col justify-center items-center  bg-gray-900  bg-clip-padding backdrop-filter
+      backdrop-blur-xl bg-opacity-10  w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoInstagram className="cursor-pointer text-[35px] hover:text-[45px] text-white transition-all duration-300 " />
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-              <BiLogoTiktok className="text-4xl cursor-pointer " />
+            <div className="flex flex-col justify-center items-center  bg-gray-900  bg-clip-padding backdrop-filter
+      backdrop-blur-xl bg-opacity-10  w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoTiktok className="cursor-pointer text-[35px] hover:text-[45px] text-white transition-all duration-300 " />
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-              <BiLogoTwitter className="text-4xl cursor-pointer " />
+            <div className="flex flex-col justify-center items-center  bg-gray-900  bg-clip-padding backdrop-filter
+      backdrop-blur-xl bg-opacity-10  w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoTwitter className="cursor-pointer text-[35px] hover:text-[45px] text-white transition-all duration-300 " />
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-500 w-[70px] h-[70px] rounded-[25px]">
-              <BiLogoTwitch className="text-4xl cursor-pointer " />
+            <div className="flex flex-col justify-center items-center  bg-gray-900  bg-clip-padding backdrop-filter
+      backdrop-blur-xl bg-opacity-10  w-[70px] h-[70px] rounded-[25px]">
+              <BiLogoTwitch className="cursor-pointer text-[35px] hover:text-[45px] text-white transition-all duration-300 " />
             </div>
           </div>
           <div
@@ -196,12 +211,22 @@ function Navbar() {
          "
           >
             <div className="w-[90%]">
-              <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
+              <button className="uppercase py-4 bg-transparent
+               hover:bg-gray-900 hover:bg-clip-padding hover:backdrop-filter
+               hover:backdrop-blur-xl hover:bg-opacity-10 
+               transition-all duration-300
+               hover:text-[20px]
+              border-white border w-full rounded-[25px]  ">
                 Log In
               </button>
             </div>
             <div className="w-[90%]">
-              <button className="uppercase py-4 bg-transparent border-white border w-full rounded-[25px]  ">
+              <button className="uppercase py-4 bg-transparent
+               hover:bg-gray-900 hover:bg-clip-padding hover:backdrop-filter
+               hover:backdrop-blur-xl hover:bg-opacity-10 
+               hover:text-[20px]
+               transition-all duration-300
+              border-white border w-full rounded-[25px]  ">
                 Sign In
               </button>
             </div>
