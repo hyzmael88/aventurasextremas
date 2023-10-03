@@ -23,12 +23,19 @@ function Contact() {
               name="email"
               className="bg-transparent text-center rounded-xl w-full
                      py-2  font-MelbergRegular
-                     border-white border"
+                     border-white border
+                     hover:bg-gray-900 hover:bg-clip-padding hover:backdrop-filter
+               hover:backdrop-blur-xl hover:bg-opacity-10 
+               hover:text-[20px]
+                     " 
               placeholder="Mail"
             />
             <textarea
               placeholder="Message"
               className="bg-transparent text-center
+              hover:bg-gray-900 hover:bg-clip-padding hover:backdrop-filter
+               hover:backdrop-blur-xl hover:bg-opacity-10 
+               hover:text-[20px]
                       rounded-xl w-full border-white border
                       font-MelbergRegular 
                       "
@@ -37,7 +44,11 @@ function Contact() {
               type="submit"
               className="bg-transparent text-center
                       font-MelbergRegular
-                      rounded-xl w-full border-white border mt-2"
+                      rounded-xl w-full border-white 
+                      hover:bg-gray-900 hover:bg-clip-padding hover:backdrop-filter
+               hover:backdrop-blur-xl hover:bg-opacity-10 
+               hover:text-[20px]
+                      border mt-2"
             >
               SEND
             </button>
