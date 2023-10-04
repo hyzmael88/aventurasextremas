@@ -40,16 +40,16 @@ function Product({ item }) {
       }}
     >
       <div
-        className="bg-white/70 rounded-[35px] w-[90%] h-[500px] 
-         flex flex-col justify-center items-center"
+        className="bg-white/70 rounded-[35px] w-[90%] h-[400px] xl:h-[500px] 
+         flex flex-col justify-center items-center mt-4"
       >
         <img
           src={currentImage}
           alt=""
           className={`${
             productoActivoHover == item
-              ? "w-[250px] h-[350px]"
-              : "w-[200px] h-[300px] "
+              ? "w-full h-[250px] xl:w-[250px] xl:h-[350px] "
+              : "w-full h-[250px] xl:w-[200px] xl:h-[300px]  "
           }  transition-all duration-300 object-contain `}
         />
         <div
@@ -60,8 +60,8 @@ function Product({ item }) {
           <h2
             className={`${
               productoActivoHover == item || productoActivo == item
-                ? "text-3xl"
-                : "text-2xl"
+                ? "text-xl xl:text-3xl"
+                : "text-lg xl:text-2xl"
             } font-MelbergHeavy transition-all duration-300 `}
           >
             {item.name}
@@ -69,8 +69,8 @@ function Product({ item }) {
           <span
             className={`${
               productoActivoHover == item || productoActivo == item
-                ? "text-2xl"
-                : "text-xl"
+                ? "text-xl xl:text-2xl"
+                : "text-lg xl:text-xl"
             }  transition-all duration-300 `}
           >
             ${item.sizes[0].price}
