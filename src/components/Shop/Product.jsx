@@ -49,8 +49,8 @@ function Product({ item }) {
           className={`${
             productoActivoHover == item
               ? "w-[250px] h-[350px]"
-              : "w-[200px] h-[300px]"
-          }  transition-all duration-300 `}
+              : "w-[200px] h-[300px] "
+          }  transition-all duration-300 object-contain `}
         />
         <div
           className="w-[90%] h-[30px] flex flex-col justify-between items-center
