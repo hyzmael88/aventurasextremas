@@ -1,6 +1,19 @@
-import React from 'react'
+import { AppContext } from '@/context/StateContext'
+import Image from 'next/image'
+import React, { useEffect } from 'react'
+import Product from './Product'
 
 function Store() {
+
+  const{getProducts, products} = AppContext()
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  console.log(products)
+  
+
   return (
     <div className='w-full h-full flex flex-col justify-center items-center
     
@@ -9,9 +22,17 @@ function Store() {
         flex flex-col justify-center items-center
         bg-gray-900  bg-clip-padding backdrop-filter
       backdrop-blur-xl bg-opacity-10  w-[90%] h-[70vh] rounded-[25px]'>
-        <div className='w-[95%] h-[95%] bg-white/70 rounded-[30px]
-        grid grid-cols-2 items-center
+        <div className='w-[95%] h-[90%] bg-white/50 rounded-[30px]
+        grid grid-cols-2 xl:grid-cols-4 items-center
         '>
+          {
+            products.map((item, index) =>(
+              <Product
+              item={item}
+              key={index}
+              />
+            ))
+          }
 
         </div>
         </div>
