@@ -31,7 +31,7 @@ function Navbar() {
   const pathname = router.pathname;
   // nav data
 
-  const { navButton, setNavButton, isMenuActive, setIsMenuActive } =
+  const { navButton, setNavButton, isMenuActive, setIsMenuActive ,carrito } =
     AppContext();
 
   const cambioPagina = (item) => {
@@ -110,6 +110,20 @@ function Navbar() {
             alt="logo"
             className="w-[100px] h-[100px] animate-pulse "
           />
+          
+
+            <div className="relative">
+            <FaShoppingCart className="mr-4 text-[50px] text-[#fed0b1] animate-pulse cursor-pointer" />
+            {
+            carrito.length> 0 &&
+            <div className="absolute bg-[#fed0b1]  rounded-full animate-pulse cursor-pointer -z-20 p-3 right-0 -top-2">
+              <span className="text-[10px] absolute left-[40%] top-[25%] text-white
+              font-bold
+              ">1</span>
+
+            </div>
+            }
+          </div>
           {/* Hamburguer */}
           <div onClick={() => setIsMenuActive(true)}>
             <BiMenuAltRight
@@ -145,6 +159,9 @@ function Navbar() {
               alt="logo"
               className="w-[100px] h-[100px] animate-pulse "
             />
+             <div>
+            <FaShoppingCart className="text-3xl hover:text-white transition-all duration-300 cursor-pointer" />
+          </div>
             {/* Cross*/}
             <div onClick={() => setIsMenuActive(false)}>
               <RxCross1

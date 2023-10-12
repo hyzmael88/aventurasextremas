@@ -10,6 +10,7 @@ export function StateContextProvider({ children }) {
   const [navButton, setNavButton] = useState(null)
   const [isMenuActive, setIsMenuActive] = useState(false)
   const [products, setProducts] = useState([]);
+  const [carrito, setCarrito] = useState([])
 
   /* Productos */
   const getProducts = async () => {
@@ -29,7 +30,9 @@ export function StateContextProvider({ children }) {
         setNavButton,
         products,
         setProducts,
-        getProducts
+        getProducts,
+        carrito,
+        setCarrito
       }}
       >
         {children}

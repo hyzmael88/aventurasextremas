@@ -3,12 +3,16 @@ import { urlForImage } from "../../../sanity/lib/image";
 import { BsArrowRight } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { LuShare } from "react-icons/lu";
+import { AppContext } from "@/context/StateContext";
 
 function Product({ item, productoActivo }) {
   const [productoActivoHover, setProductoActivoHover] = useState(null);
   const [currentImage, setCurrentImage] = useState(
     urlForImage(item.image[0].asset._ref)
   );
+
+  const {setCarrito, carrito} = AppContext()
+  console.log(carrito)
 
   useEffect(() => {
     let intervalIds = [];
@@ -145,6 +149,7 @@ function Product({ item, productoActivo }) {
             bg-black text-white
             overflow-hidden hover:border-accent group
             "
+            onClick={()=>setCarrito([...carrito, item])}
                 >
                   <span
                     className="group-hover:-translate-y-[120%] group-hover:opacity-0
