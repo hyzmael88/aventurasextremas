@@ -12,7 +12,6 @@ function Store() {
   }, []);
 
   const [productoActivo, setProductoActivo] = useState(null)
- 
   console.log(productoActivo)
 
 
@@ -47,6 +46,7 @@ function Store() {
                     item == productoActivo&&
                     <Product item={item}
                     productoActivo = {productoActivo}
+                    setProductoActivo={setProductoActivo}
                     />
                   :
                   <Product item={item}

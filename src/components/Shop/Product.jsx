@@ -4,8 +4,9 @@ import { BsArrowRight } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { LuShare } from "react-icons/lu";
 import { AppContext } from "@/context/StateContext";
+import { RxCross1 } from "react-icons/rx";
 
-function Product({ item, productoActivo }) {
+function Product({ item, productoActivo, setProductoActivo }) {
   const [productoActivoHover, setProductoActivoHover] = useState(null);
   const [currentImage, setCurrentImage] = useState(
     urlForImage(item.image[0].asset._ref)
@@ -50,20 +51,33 @@ function Product({ item, productoActivo }) {
   return (
     <div
       className="w-full h-full flex flex-col
-     justify-center items-center"
+     justify-center items-center  "
     >
+      
       <div
-        className={`bg-white/70 rounded-[35px] w-[90%] h-[400px] xl:h-[500px] 
+        className={`bg-white/70 rounded-[35px] w-[90%] h-[90%] xl:h-[500px] relative  
         ${
           productoActivo
             ? item.file
-              ? "grid grid-cols-3 place-items-center"
-              : "grid grid-cols-2 place-items-center"
+              ? " flex flex-col-reverse h-full justify-center items-center first-letter  xl:grid xl:grid-cols-3 place-items-center"
+              : "flex flex-col-reverse h-full justify-center items-center first-letter xl:grid xl:grid-cols-2 place-items-center"
             : "flex flex-col"
         } 
         
         justify-center items-center mt-4 relative z-20`}
       >
+        {
+          productoActivo &&
+
+        <div
+        onClick={()=>console.log("toque")}
+        className="absolute bg-black/70 p-4 -right-2 -top-4 rounded-full z-50 cursor-pointer ">
+          <RxCross1 className="text-sm "
+          
+          />
+
+        </div>
+        }
         <div
           className=" flex flex-col justify-center items-center cursor-pointer "
           onMouseOver={() => setProductoActivoHover(item)}
@@ -75,7 +89,7 @@ function Product({ item, productoActivo }) {
             className={`
           ${
             productoActivo
-              ? "w-[70%] h-[450px]"
+              ? "w-[70%] h-[250px] xl:w-[70%] xl:h-[450px]"
               : "w-full h-[250px] xl:w-[200px] xl:h-[300px]   "
           }
             ${productoActivoHover == item && productoActivo && "w-[70%]"}  
@@ -93,7 +107,7 @@ function Product({ item, productoActivo }) {
           />
         </div>
         <div
-          className={`w-[90%] h-[30px] flex flex-col  items-center
+          className={`w-[90%] h-[300px] flex flex-col  items-center
                 text-center mt-4
                  text-black uppercase 
                  {
@@ -109,7 +123,7 @@ function Product({ item, productoActivo }) {
           <h2
             className={`${
               productoActivoHover == item || productoActivo == item
-                ? "text-xl xl:text-3xl"
+                ? "text-2xl xl:text-3xl"
                 : "text-lg xl:text-2xl"
             } 
             font-MelbergHeavy transition-all duration-300 text-center `}
@@ -118,8 +132,8 @@ function Product({ item, productoActivo }) {
           </h2>
           {productoActivo && (
             <div className="font-MelbergRegular ">
-              <p>{item.details}</p>
-              <p>{item.description}</p>
+              <p className="text-xl">{item.details}</p>
+              <p className="text-xl ">{item.description}</p>
               <div className="w-full flex flex-col items-center gap-y-2">
                 <button
                   className=" border border-white/50
@@ -186,14 +200,14 @@ function Product({ item, productoActivo }) {
             className={`
         ${
           productoActivo
-            ? "flex flex-col items-center w-full h-full relative"
+            ? "flex flex-col items-center w-[350px] h-[300px] xl:w-[350px] xl:h-[500px] relative"
             : "hidden"
         }
         `}
           >
             <model-viewer
               className="center-block"
-              style={{ width: "350px", height: "500px" }}
+              style={{ width: "100%", height: "100%" }}
               bounds="tight"
               enable-pan
               src={newAr}
